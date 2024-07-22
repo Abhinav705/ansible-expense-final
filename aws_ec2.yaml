@@ -1,14 +1,14 @@
-plugin: amazon.aws.aws_ec2
+plugin: amazon.aws.aws_ec2 #ec2 plugin 
 regions:
 - us-east-1
 keyed_groups:
-- key: tags['Name']
+- key: tags['Name'] #filtering the servers based on name
   prefix: ''
   parent_group: ''
 
 filters:
-  tag:Name: "Backend*"
+  tag:Name: "Backend*" #filters the servers whose name starts with Backend
 
 compose:
   # This sets the ansible_host variable to connect with the private IP address without changing the hostname.
-  ansible_host: private_ip_address
+  ansible_host: private_ip_address #conncects with the private IP address.

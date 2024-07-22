@@ -12,15 +12,15 @@
 - name: Run pre-requisties
   tags:
   - deployment
-  ansible.builtin.import_role:
+  ansible.builtin.import_role: #importing the role from common tasks folder
     name: common
-    tasks_from: app-pre-req
+    tasks_from: app-pre-req #imorting thre task from common tasks folder
 
 - name: copy backend conf
   ansible.builtin.template:
     src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
-  notify:
+  notify: #this will check in template folder and runs the below task from the template location
   - restart nginx
 
 # - name: restart nginx
