@@ -1,4 +1,4 @@
-- name: restart nginx
+- name: restart nginx  #this will only run when it get triggered.
   ansible.builtin.service:
     name: nginx
     state: restarted
